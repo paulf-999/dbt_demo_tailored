@@ -42,6 +42,7 @@ clean:
 	@rm tmp/*.pkg
 	@rm tmp/conn_profile.txt-e
 
+#pf - changed
 create_snowflake_account_objs:
 	$(info [+] Create the snowflake account objects)
 	@[ "${sf_conn_profile}" ] || ( echo "\nError: sf_conn_profile variable is not set\n"; exit 1 )
@@ -55,6 +56,11 @@ create_snowflake_account_objs:
 	@${snowsql_query} -f account_objects/warehouse/v1_warehouses.sql --variable program=${program}
 	@${snowsql_query} -f account_objects/role/permissions/grant_permissions/ownership/v1_grant_wh_ownership_perms.sql --variable program=${program}
 	@${snowsql_query} -f account_objects/database/v1_raw_db_and_schemas.sql --variable program=${program}
+	# new dbs #
+	@${snowsql_query} -f account_objects/database/v1_src_db_and_schemas.sql --variable program=${program}
+	@${snowsql_query} -f account_objects/database/v1_dq_db_and_schemas.sql --variable program=${program}
+	@${snowsql_query} -f account_objects/database/v1_snapshot_proc_db_and_schemas.sql --variable program=${program}
+	###
 	@${snowsql_query} -f account_objects/database/v1_curated_db_and_schemas.sql --variable program=${program}
 	@${snowsql_query} -f account_objects/database/v1_analytics_db_and_schemas.sql --variable program=${program}
 	@${snowsql_query} -f account_objects/role/permissions/grant_permissions/v1_grant_execute_task_perms.sql --variable program=${program}	--variable ENV=${ENV}
@@ -62,11 +68,19 @@ create_snowflake_account_objs:
 	@${snowsql_query} -f account_objects/role/permissions/v1_create_role_hierarchy.sql --variable program=${program}
 	@${snowsql_query} -f account_objects/role/permissions/grant_permissions/v1_grant_role_permissions.sql --variable program=${program} --variable ENV=${ENV}
 
+#pf - changed
+create_new_dbs:
+	@${snowsql_query} -f account_objects/database/v1_src_db_and_schemas.sql --variable program=${program}
+	@${snowsql_query} -f account_objects/database/v1_dq_db_and_schemas.sql --variable program=${program}
+	@${snowsql_query} -f account_objects/database/v1_snapshot_proc_db_and_schemas.sql --variable program=${program}
+
+#pf - changed
 create_snowflake_raw_db_objs:
 	$(info [+] Create the snowflake RAW db objects)
 	@${snowsql_query} -f database_objects/raw_db/table/v1_sales_tbls.sql --variable program=${program}
 	@${snowsql_query} -f ddatabase_objects/raw_db/table/v1_production_tbls.sql --variable program=${program}
 
+#pf - changed
 load_ip_data:
 	$(info [+] Create stages, upload files to stage then load into target tables)
 	@${snowsql_query} -f database_objects/raw_db/file_format/v1_csv_file_format.sql --variable PROGRAM=${program}

@@ -1,7 +1,7 @@
 !SET variable_substitution=true;
 USE ROLE &{PROGRAM}_DBA;
 USE WAREHOUSE &{PROGRAM}_DEVELOPER_WH;
-USE DATABASE &{PROGRAM}_RAW_DB;
+USE DATABASE &{PROGRAM}_SRC_DB;
 USE SCHEMA UTILITIES;
 
 -- production schema inserts
