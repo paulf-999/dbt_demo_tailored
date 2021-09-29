@@ -36,3 +36,9 @@ test_and_build:
 
 write_to_log_demo:
 	@echo "[$(shell date)]" 2>&1 | tee  -a logs/dbt_cmds.log && cd ${DBT_PROJECT_NAME} && dbt deps --profiles-dir=profiles 2>&1 | tee  -a  ../../../logs/dbt_cmds.log
+
+########################
+# project-specific demo
+########################
+
+
