@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: bike_production
-    database: bikestores_raw_db
+    database: bike_shop_raw_db
     schema: production
     tables:
       - name: brands
@@ -10,7 +10,7 @@ sources:
       - name: products
       - name: stocks
   - name: bike_sales
-    database: bikestores_raw_db
+    database: bike_shop_raw_db
     schema: sales
     tables:
       - name: customers

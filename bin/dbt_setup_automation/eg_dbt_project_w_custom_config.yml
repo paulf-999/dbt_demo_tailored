@@ -6,7 +6,7 @@ version: '1.0.0'
 config-version: 2
 
 # This setting configures which "profile" dbt uses for this project.
-profile: 'bikestores_cicd_demo'
+profile: 'bike_shop_cicd_demo'
 
 # These configurations specify where dbt should look for different types of files.
 # The `source-paths` config, for example, states that models in this project can be
@@ -31,5 +31,5 @@ models:
       curated_db:
         schema: edm
       analytics_db:
-        database: bikestores_analytics_db
+        database: bike_shop_analytics_db
         schema: bu

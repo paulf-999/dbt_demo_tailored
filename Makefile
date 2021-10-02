@@ -40,5 +40,8 @@ write_to_log_demo:
 ########################
 # project-specific demo
 ########################
+run_model_dq_db:
+	cd ${DBT_PROJECT_NAME}/dbt_modules/data_quality && dbt run --profiles-dir profiles
 
-
+run_snapshots:
+	cd ${DBT_PROJECT_NAME}/dbt_modules/snapshot_cdc_processing && dbt snapshot --profiles-dir profiles

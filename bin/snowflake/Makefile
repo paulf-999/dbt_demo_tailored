@@ -77,7 +77,7 @@ create_snowflake_src_db_objs:
 load_ip_data:
 	$(info [+] Create stages, upload files to stage then load into target tables)
 	@${snowsql_query} -f database_objects/src_db/file_format/v1_csv_file_format.sql --variable PROGRAM=${program}
-	@${snowsql_query} -f database_objects/src_db/stage/v1_bikestores_stage.sql --variable PROGRAM=${program_upper}
+	@${snowsql_query} -f database_objects/src_db/stage/v1_bike_shop_stage.sql --variable PROGRAM=${program_upper}
 
 	# upload the files
 	@${snowsql_query} -f data_loading/upload_data.sql --variable PROGRAM=${program}

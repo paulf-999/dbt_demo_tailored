@@ -1,9 +1,9 @@
-{% snapshot categories_snapshot %}
+{% snapshot categories %}
 
 {{
     config(
-        target_database='bikestores_curated_db',
-        target_schema='edm',
+        target_database='bike_shop_snapshot_proc_db',
+        target_schema='production',
         unique_key='category_id',
 
         strategy='timestamp',

@@ -2,7 +2,7 @@
 
 {{
     config(
-        target_database='bikestores_curated_db',
+        target_database='bike_shop_curated_db',
         target_schema='edm',
         unique_key='category_id',
 
