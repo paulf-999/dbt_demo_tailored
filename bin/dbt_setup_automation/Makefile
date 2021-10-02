@@ -34,6 +34,7 @@ init_dbt_project:
 	@rm -r ${DBT_PROJECT_NAME}/models/example
 	# copy sub projects folders and packages.yml file
 	@cp templates/packages.yml ${DBT_PROJECT_NAME}/packages.yml
+	@cp templates/.gitignore ${DBT_PROJECT_NAME}/.gitignore
 	@cp -r dbt_sub_projects/ ${DBT_PROJECT_NAME}/dbt_sub_projects/
 	@echo
 

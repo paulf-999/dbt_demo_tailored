@@ -15,7 +15,7 @@ run_model:
 
 document_model:
 	$(info [+] Document the DBT model)
-	cd ${DBT_PROJECT_NAME} && dbt docs generate --profiles-dir profiles --models ${DBT_MODEL}
+	cd ${DBT_PROJECT_NAME} && dbt docs generate --profiles-dir profiles
 	cd ${DBT_PROJECT_NAME} && dbt docs serve --profiles-dir profiles
 
 run_generic_tests:

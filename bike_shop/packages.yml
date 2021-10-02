@@ -1,4 +1,5 @@
 packages:
+  - local: dbt_sub_projects/src_snapshot_dbs
   - local: dbt_sub_projects/data_quality
-  - local: dbt_sub_projects/share_snapshot_processing
+  - local: dbt_sub_projects/snapshot_cdc_processing
   - local: dbt_sub_projects/dwh
