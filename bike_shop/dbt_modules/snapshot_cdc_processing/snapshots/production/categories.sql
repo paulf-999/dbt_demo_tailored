@@ -1,4 +1,4 @@
-{% snapshot categories %}
+{% snapshot categories_snapshot %}
 
 {{
     config(
@@ -11,6 +11,6 @@
     )
 }}
 
-SELECT * FROM {{ source('bike_production', 'categories') }}
+SELECT * FROM {{ source('bike_production', 'categories_dq') }}
 
 {% endsnapshot %}

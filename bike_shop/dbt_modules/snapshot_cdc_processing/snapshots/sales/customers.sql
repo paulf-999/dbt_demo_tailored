@@ -1,4 +1,4 @@
-{% snapshot customers %}
+{% snapshot customers_snapshot %}
 
 {{
     config(
@@ -11,6 +11,6 @@
     )
 }}
 
-SELECT * FROM {{ source('bike_sales', 'customers') }}
+SELECT * FROM {{ source('bike_sales', 'customers_dq') }}
 
 {% endsnapshot %}

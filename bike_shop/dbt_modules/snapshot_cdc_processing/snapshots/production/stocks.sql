@@ -1,4 +1,4 @@
-{% snapshot stocks %}
+{% snapshot stocks_snapshot %}
 
 {{
     config(
@@ -11,6 +11,6 @@
     )
 }}
 
-SELECT * FROM {{ source('bike_production', 'stocks') }}
+SELECT * FROM {{ source('bike_production', 'stocks_dq') }}
 
 {% endsnapshot %}
