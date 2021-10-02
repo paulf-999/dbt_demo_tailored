@@ -1,4 +1,4 @@
 {{ config(schema='sales') }}
 
 SELECT *
-FROM {{ source('bike_sales', 'customers') }}
+FROM {{ source('bike_sales', 'orders') }}
