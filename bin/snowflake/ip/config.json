@@ -1,6 +1,6 @@
 {
     "Parameters" : {
-        "program" : "BIKESTORES",
+        "program" : "BIKE_SHOP",
         "snowsql_query" : "snowsql -c ${sf_conn_profile} -o friendly=false -o header=false -o timing=false",
         "bootstrap_version" : 1.2,
         "snowsql_version" : "${bootstrap_version}.9",
