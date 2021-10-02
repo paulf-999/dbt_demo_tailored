@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: bike_sales
-    database: bike_shop_src_db
+    database: bike_shop_dq_db
     schema: sales
     tables:
       - name: customers
@@ -11,7 +11,7 @@ sources:
       - name: staffs
       - name: stores
   - name: bike_production
-    database: bike_shop_sq_db
+    database: bike_shop_dq_db
     schema: production
     tables:
       - name: brands

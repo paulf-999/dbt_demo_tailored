@@ -69,10 +69,6 @@ create_snowflake_src_db_objs:
 	$(info [+] Create the snowflake NEW db objects)
 	@${snowsql_query} -f database_objects/src_db/table/v1_sales_tbls.sql --variable program=${program}
 	@${snowsql_query} -f database_objects/src_db/table/v1_production_tbls.sql --variable program=${program}
-	@${snowsql_query} -f database_objects/dq_db/table/v1_sales_tbls.sql --variable program=${program}
-	@${snowsql_query} -f database_objects/dq_db/table/v1_production_tbls.sql --variable program=${program}
-	@${snowsql_query} -f database_objects/snapshot_proc_db/table/v1_sales_tbls.sql --variable program=${program}
-	@${snowsql_query} -f database_objects/snapshot_proc_db/table/v1_production_tbls.sql --variable program=${program}
 
 load_ip_data:
 	$(info [+] Create stages, upload files to stage then load into target tables)
