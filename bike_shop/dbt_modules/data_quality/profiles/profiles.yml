@@ -8,7 +8,7 @@ dbt_svc_profile:
       user: "{{ env_var('BIKE_SHOP_DBT_USER') }}"
       password: "{{ env_var('BIKE_SHOP_DBT_PASS') }}"
 
-      database: "{{ env_var('BIKE_SHOP_DB') }}"
+      database: bike_shop_dq_db
       warehouse: "{{ env_var('BIKE_SHOP_WH') }}"
       schema: "{{ env_var('BIKE_SHOP_SCHEMA') }}"
       threads: 4

@@ -13,10 +13,10 @@ run_model:
 	$(info [+] Run the DBT model)
 	cd ${DBT_PROJECT_NAME} && dbt run --profiles-dir profiles --models ${DBT_MODEL}
 
-document_model:
-	$(info [+] Document the DBT model)
-	cd ${DBT_PROJECT_NAME} && dbt docs generate --profiles-dir profiles --models ${DBT_MODEL}
-	cd ${DBT_PROJECT_NAME} && dbt docs serve --profiles-dir profiles
+#document_model:
+#	$(info [+] Document the DBT model)
+#	cd ${DBT_PROJECT_NAME} && dbt docs generate --profiles-dir profiles
+#	cd ${DBT_PROJECT_NAME} && dbt docs serve --profiles-dir profiles
 
 run_generic_tests:
 	$(info [+] Test the DBT model. Note: this tests the actual data against predefined business rules)
@@ -40,5 +40,21 @@ write_to_log_demo:
 ########################
 # project-specific demo
 ########################
+run_model_dq_db:
+	cd ${DBT_PROJECT_NAME}/dbt_modules/data_quality && dbt run --profiles-dir profiles
 
+run_snapshots:
+	cd ${DBT_PROJECT_NAME} && dbt snapshot --profiles-dir dbt_modules/snapshot_cdc_processing/profiles
 
+run_dwh_model_raw_db:
+	$(info [+] Run the DBT model)
+	cd ${DBT_PROJECT_NAME} && dbt run --profiles-dir profiles --models raw_db
+
+run_dwh_model_curated_db:
+	$(info [+] Run the DBT model)
+	cd ${DBT_PROJECT_NAME} && dbt run --profiles-dir profiles --models curated_db
+
+document_model:
+	$(info [+] Document the DBT model)
+	cd ${DBT_PROJECT_NAME} && dbt docs generate --profiles-dir profiles
+	cd ${DBT_PROJECT_NAME} && dbt docs serve --profiles-dir profiles

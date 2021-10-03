@@ -28,12 +28,12 @@ init_dbt_project:
 	@cp -r profiles/ ${DBT_PROJECT_NAME}/profiles
 	@cp -r models/ ${DBT_PROJECT_NAME}/models
 	@cp -r tests/ ${DBT_PROJECT_NAME}/tests
-	@cp -r macros/ ${DBT_PROJECT_NAME}/macros
 	# copy schema.yml (data model tests) to project folder
 	# @cp schema.yml ${DBT_PROJECT_NAME}/models/
 	@rm -r ${DBT_PROJECT_NAME}/models/example
 	# copy sub projects folders and packages.yml file
 	@cp templates/packages.yml ${DBT_PROJECT_NAME}/packages.yml
+	@cp templates/.gitignore ${DBT_PROJECT_NAME}/.gitignore
 	@cp -r dbt_sub_projects/ ${DBT_PROJECT_NAME}/dbt_sub_projects/
 	@echo
 
