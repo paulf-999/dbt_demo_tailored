@@ -5,7 +5,7 @@
     )
 }}
 
-SELECT * FROM {{ source('bike_sales', 'orders') }}
+SELECT * FROM {{ ref('dwh', 'orders_raw') }}
 
 {% if is_incremental() %}
 

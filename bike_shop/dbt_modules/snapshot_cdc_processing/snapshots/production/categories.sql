@@ -11,6 +11,6 @@
     )
 }}
 
-SELECT * FROM {{ source('bike_production', 'categories_dq') }}
+SELECT * FROM {{ ref('data_quality', 'categories_dq') }}
 
 {% endsnapshot %}

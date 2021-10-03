@@ -11,6 +11,6 @@
     )
 }}
 
-SELECT * FROM {{ source('bike_sales', 'customers_dq') }}
+SELECT * FROM {{ ref('data_quality', 'customers_dq') }}
 
 {% endsnapshot %}

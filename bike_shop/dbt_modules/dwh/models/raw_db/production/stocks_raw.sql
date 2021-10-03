@@ -1,11 +1,14 @@
 {{
     config(
         materialized='incremental',
+        database='bike_shop_raw_db',
+        schema='production',
         tags=["incremental"]
     )
 }}
 
-SELECT * FROM {{ ref('dwh', 'stores_raw') }}
+SELECT *
+FROM {{ ref('snapshot_cdc_processing', 'stocks_snapshot') }}
 
 {% if is_incremental() %}
 
